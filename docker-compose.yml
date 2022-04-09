@@ -17,7 +17,7 @@ services:
     tty: true
   db:
     image: postgres:14.0-alpine3.14
-    container_name: postgres
+    container_name: postgres_select_web
     environment:
       POSTGRES_USER: select_web
       POSTGRES_DB: select_web
