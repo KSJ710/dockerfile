@@ -23,6 +23,7 @@ services:
       MYSQL_USER: my_web_sample
       MYSQL_PASSWORD: my_web_sample
       MYSQL_DATABASE: my_web_sample
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
     networks:
