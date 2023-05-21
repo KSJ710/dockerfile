@@ -19,10 +19,10 @@ services:
     image: mysql:8.0.33-oracle
     container_name: my_web_sample_mysql
     environment:
-      MYSQL_ROOT_PASSWORD: my_web_sample
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_USER: my_web_sample
+      MYSQL_PASSWORD: my_web_sample
       MYSQL_DATABASE: my_web_sample
-      MYSQL_PWD: my_web_sample
     ports:
       - "3306:3306"
     networks:
