@@ -1,7 +1,7 @@
-FROM node:current-alpine3.16
+FROM rust:current-alpine3.16
 
-ARG USERNAME=template
-ARG GROUPNAME=template
+ARG USERNAME=rust
+ARG GROUPNAME=rust
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USERNAME}
