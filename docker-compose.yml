@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  web:
+  rust:
     build: .
     container_name: ${APP_NAME?err}
     ports:
@@ -9,4 +9,3 @@ services:
     volumes:
       - ../app:/home/${APP_NAME?err}/app
     tty: true
-

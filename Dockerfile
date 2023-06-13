@@ -1,4 +1,4 @@
-FROM rust:current-alpine3.16
+FROM rust:1.70-alpine3.17
 
 ARG USERNAME=rust
 ARG GROUPNAME=rust
@@ -14,11 +14,6 @@ RUN apk update && apk add --no-cache shadow sudo tzdata \
   && echo "${USERNAME}:${GROUPNAME}" | chpasswd && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && echo "Set disable_coredump false" >> /etc/sudo.conf \
   && echo "root:root" | chpasswd
-RUN mv /usr/local/lib/node_modules /usr/local/lib/node_modules.tmp \
-  && mv /usr/local/lib/node_modules.tmp /usr/local/lib/node_modules \
-  && npm i -g npm@^9.6.5
-#DEV
 RUN apk add --no-cache bash curl git vim starship
-# RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 CMD [ "bash" ]
