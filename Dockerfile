@@ -1,8 +1,17 @@
-FROM tiangolo/uvicorn-gunicorn:python3.11
+FROM python:3.11.4-bookworm
 
-LABEL maintainer="sakakibara <no email>"
+ARG USERNAME=fast_api
+ARG GROUPNAME=fast_api
+ARG UID=1710
+ARG GID=1710
+ARG HOME=/home/${USERNAME}
+ENV LANG C.UTF-8
 
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN apt update && groupadd -g ${GID} ${GROUPNAME} \
+    && useradd -m -u ${UID} -g ${GID} ${USERNAME}  \
+    && echo "${USERNAME}:${GROUPNAME}" | chpasswd && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && echo "Set disable_coredump false" >> /etc/sudo.conf && echo "root:root" | chpasswd
 
-COPY ../app /app
+# RUN apt install -y bash curl git vim starship
+
+
+  CMD [ "bash" ]
