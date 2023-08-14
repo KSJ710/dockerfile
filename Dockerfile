@@ -1,7 +1,7 @@
 FROM python:3.11.4-bookworm
 
-ARG USERNAME=fast_api
-ARG GROUPNAME=fast_api
+ARG USERNAME=python
+ARG GROUPNAME=python
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USERNAME}
