@@ -14,7 +14,9 @@ RUN apk update && apk add --no-cache shadow sudo tzdata \
   && echo "${USERNAME}:${GROUPNAME}" | chpasswd && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && echo "Set disable_coredump false" >> /etc/sudo.conf \
   && echo "root:root" | chpasswd
-RUN apk add --no-cache bash curl git vim starship
+
+#dev
+RUN apk add --no-cache bash curl git vim starship less
 RUN rustup component add rustfmt
 
 CMD [ "bash" ]
