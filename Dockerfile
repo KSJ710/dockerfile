@@ -1,4 +1,4 @@
-FROM node:current-alpine3.16
+FROM node:current-alpine3.17
 
 ARG USERNAME=template
 ARG GROUPNAME=template
@@ -16,7 +16,7 @@ RUN apk update && apk add --no-cache shadow sudo tzdata \
   && echo "root:root" | chpasswd
 RUN mv /usr/local/lib/node_modules /usr/local/lib/node_modules.tmp \
   && mv /usr/local/lib/node_modules.tmp /usr/local/lib/node_modules \
-  && npm i -g npm@^9.6.5
+  && npm i -g npm@^9.8.1
 #DEV
 RUN apk add --no-cache bash curl git vim starship less
 # RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
