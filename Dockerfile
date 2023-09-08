@@ -1,7 +1,7 @@
 FROM node:current-alpine3.17
 
-ARG USERNAME=template
-ARG GROUPNAME=template
+ARG USERNAME=node
+ARG GROUPNAME=node
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USERNAME}
