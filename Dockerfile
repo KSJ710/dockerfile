@@ -1,4 +1,4 @@
-FROM node2:current-alpine3.17
+FROM node:current-alpine3.17
 
 ARG USERNAME=node2
 ARG GROUPNAME=node2
