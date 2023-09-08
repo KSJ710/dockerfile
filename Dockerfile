@@ -1,7 +1,7 @@
-FROM node:current-alpine3.17
+FROM node2:current-alpine3.17
 
-ARG USERNAME=node
-ARG GROUPNAME=node
+ARG USERNAME=node2
+ARG GROUPNAME=node2
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USERNAME}
@@ -14,8 +14,8 @@ RUN apk update && apk add --no-cache shadow sudo tzdata \
   && echo "${USERNAME}:${GROUPNAME}" | chpasswd && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && echo "Set disable_coredump false" >> /etc/sudo.conf \
   && echo "root:root" | chpasswd
-RUN mv /usr/local/lib/node_modules /usr/local/lib/node_modules.tmp \
-  && mv /usr/local/lib/node_modules.tmp /usr/local/lib/node_modules \
+RUN mv /usr/local/lib/node2_modules /usr/local/lib/node2_modules.tmp \
+  && mv /usr/local/lib/node2_modules.tmp /usr/local/lib/node2_modules \
   && npm i -g npm@^9.8.1
 #DEV
 RUN apk add --no-cache bash curl git vim starship less
