@@ -25,14 +25,14 @@ services:
         ipv4_address: 192.2.39.14
     volumes:
       - ../db:/var/lib/postgresql/data
-  smtp:
-    image: schickling/mailcatcher
-    ports:
-      - "1080:1080"
-      - "1025:1025"
-    networks:
-      app_net:
-        ipv4_address: 192.2.39.13
+  # smtp:
+  #   image: schickling/mailcatcher
+  #   ports:
+  #     - "1080:1080"
+  #     - "1025:1025"
+  #   networks:
+  #     app_net:
+  #       ipv4_address: 192.2.39.13
 
 networks:
   app_net:
