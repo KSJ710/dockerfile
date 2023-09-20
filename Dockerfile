@@ -8,9 +8,9 @@ ARG HOME=/home/${USER_NAME}
 ARG LANG=C.UTF-8
 ENV LANG ${LANG}
 
-RUN apt update && apt install -y sudo && groupadd -g ${GID} ${GROUPNAME} \
-    && useradd -m -u ${UID} -g ${GID} ${USERNAME}  \
-    && echo "${USERNAME}:${GROUPNAME}" | chpasswd && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && echo "Set disable_coredump false" >> /etc/sudo.conf && echo "root:root" | chpasswd
+RUN apt update && apt install -y sudo && groupadd -g ${GID} ${GROUP_NAME} \
+    && useradd -m -u ${UID} -g ${GID} ${USER_NAME}  \
+    && echo "${USER_NAME}:${GROUP_NAME}" | chpasswd && echo "${USER_NAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && echo "Set disable_coredump false" >> /etc/sudo.conf && echo "root:root" | chpasswd
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
