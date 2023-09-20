@@ -1,7 +1,7 @@
 FROM php:latest
 
-ARG USER_NAME=template
-ARG GROUP_NAME=template
+ARG USER_NAME=php
+ARG GROUP_NAME=php
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USER_NAME}
