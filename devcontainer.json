@@ -29,6 +29,8 @@
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
+        "mhutchie.git-graph",
+        "damildrizzy.fastapi-snippets",
         "usernamehw.errorlens",
         "naumovs.color-highlight",
         "GitHub.copilot",
@@ -37,7 +39,6 @@
         "streetsidesoftware.code-spell-checker",
         "alefragnani.Bookmarks",
         "bierner.color-info",
-        "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
         "formulahendry.auto-close-tag",
