@@ -8,7 +8,7 @@ services:
       - "3000:3000"
     networks:
       app_net:
-        ipv4_address: 192.23.19.23
+        ipv4_address: 192.23.129.23
     volumes:
       - ../app:/home/${USER_NAME?err}/app
     tty: true
@@ -19,10 +19,10 @@ services:
       - db.env
     command: postgres -c tcp_keepalives_idle=30 -c tcp_keepalives_interval=10 -c tcp_keepalives_count=2
     ports:
-      - "5432:5432"
+      - "5555:5555"
     networks:
       app_net:
-        ipv4_address: 192.23.19.22
+        ipv4_address: 192.23.129.22
     volumes:
       - ../db:/var/lib/postgresql/data
   smtp:
@@ -32,7 +32,7 @@ services:
       - "1025:1025"
     networks:
       app_net:
-        ipv4_address: 192.23.19.21
+        ipv4_address: 192.23.129.21
 
 networks:
   app_net:
@@ -40,4 +40,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.23.19.20/24
+        - subnet: 192.23.129.20/24
