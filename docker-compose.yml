@@ -5,45 +5,20 @@ services:
     build:
       context: .
       dockerfile: node.dockerfile
-    image: my_web_sample
-    container_name: my_web_sample
+    container_name: my_web_sample_on_s3
     environment:
-      DB_HOST: 192.168.229.27
-      DB_PORT: 5432
-      DB_NAME: my_web_sample
-      DB_USERNAME: my_web_sample
-      DB_PASSWORD: my_web_sample
-      DB_PASSEMAIL_SERVER_USER: ""
       EMAIL_SERVER_PASSWORD: ""
       EMAIL_SERVER_HOST: smtp
       EMAIL_SERVER_PORT: 1025
-      EMAIL_FROM=no-reply@test.comWORD: my_web_sample
+      EMAIL_FROM=no-reply@test.comWORD: my_web_sample_on_s3
     ports:
       - "3000:3000"
     networks:
       app_net:
-        ipv4_address: 192.168.229.26
+        ipv4_address: 192.23.11.3
     volumes:
-      - ../app:/home/my_web_sample/app
+      - ../app:/home/my_web_sample_on_s3/app
     tty: true
-  db:
-    image: postgres:14.5-alpine3.16
-    container_name: my_web_sample_postgres
-    environment:
-      POSTGRES_USER: my_web_sample
-      POSTGRES_DB: my_web_sample
-      POSTGRES_PASSWORD: my_web_sample
-      PGDATE: /var/lib/postgresql/data
-      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=ja_JP.UTF-8"
-      TZ: Asia/Tokyo
-    command: postgres -c tcp_keepalives_idle=30 -c tcp_keepalives_interval=10 -c tcp_keepalives_count=2
-    ports:
-      - "5432:5432"
-    networks:
-      app_net:
-        ipv4_address: 192.168.229.27
-    volumes:
-      - ../postgresql_data:/var/lib/postgresql/data
   smtp:
     image: schickling/mailcatcher
     ports:
@@ -51,7 +26,7 @@ services:
       - "1025:1025"
     networks:
       app_net:
-        ipv4_address: 192.168.229.28
+        ipv4_address: 192.23.11.2
 
 networks:
   app_net:
@@ -59,7 +34,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.229.25/24
-
-volumes:
-  posgre_data: null
+        - subnet: 192.23.11.1/24

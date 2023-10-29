@@ -1,7 +1,7 @@
-FROM node:20.2-alpine3.17
+FROM node:21.1.0-alpine3.17
 
-ARG USERNAME=my_web_sample
-ARG GROUPNAME=my_web_sample
+ARG USERNAME=my_web_sample_on_s3
+ARG GROUPNAME=my_web_sample_on_s3
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USERNAME}
@@ -15,11 +15,11 @@ RUN apk update && apk add --no-cache shadow sudo tzdata \
   && echo "Set disable_coredump false" >> /etc/sudo.conf \
   && echo "root:root" | chpasswd
 
-RUN npm i -g npm@^9.6.7
+RUN npm i -g npm@^10.1.0
 # dev
 RUN apk add --no-cache bash curl git vim starship less
 
-# WORKDIR /home/my_web_sample
+# WORKDIR /home/my_web_sample_on_s3
 # RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 # WORKDIR ${HOME}/app
