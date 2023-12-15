@@ -1,7 +1,7 @@
-FROM node:21.1.0-alpine3.17
+FROM node:21.1.4-alpine3.18
 
-ARG USERNAME=my_web_sample_on_s3
-ARG GROUPNAME=my_web_sample_on_s3
+ARG USERNAME=my_web_sample
+ARG GROUPNAME=my_web_sample
 ARG UID=1710
 ARG GID=1710
 ARG HOME=/home/${USERNAME}
@@ -19,7 +19,7 @@ RUN npm i -g npm@^10.1.0
 # dev
 RUN apk add --no-cache bash curl git vim starship less
 
-# WORKDIR /home/my_web_sample_on_s3
+# WORKDIR /home/my_web_sample
 # RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 # WORKDIR ${HOME}/app
