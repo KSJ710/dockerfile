@@ -51,4 +51,4 @@ COPY .bash_functions "/home/${USERNAME}/"
 
 # RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
-# CMD [ "bash" ]
+CMD [ "bash" ]
