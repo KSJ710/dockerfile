@@ -46,6 +46,9 @@ RUN apk add --no-cache git bash vim starship less wget bind-tools \
   && sudo unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
   && sudo mv terraform /usr/bin/terraform
 
+COPY .bash_profile "/home/${USERNAME}/"
+COPY .bashrc "/home/${USERNAME}/"
+COPY .vimrc "/home/${USERNAME}/"
 COPY .bash_aliases "/home/${USERNAME}/"
 COPY .bash_functions "/home/${USERNAME}/"
 
